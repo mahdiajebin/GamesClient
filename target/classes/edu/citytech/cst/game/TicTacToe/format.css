@@ -1,0 +1,31 @@
+.label {
+    -fx-font-size: .5in;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-alignment: center ;
+    -fx-min-height: 1in;
+    -fx-min-width: 1in;
+}
+
+.winner{
+    -fx-text-fill: green;
+}
+.error{
+    -fx-text-fill: red;
+}
+
+
+.title {
+    -fx-font-size: 60px;
+
+}
+
+.button {
+    -fx-font-size: 20px;
+}
+
+.message{
+ -fx-font-size: 20px;
+   -fx-min-height: .5in;
+}
+

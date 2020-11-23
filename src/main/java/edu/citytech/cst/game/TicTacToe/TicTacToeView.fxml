@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" stylesheets="@format.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.cst.game.TicTacToe.TicTacToeController">
+   <children>
+      <GridPane fx:id="gpGame" layoutX="148.0" layoutY="150.0" prefHeight="259.0" prefWidth="209.0">
+      
+         <children>
+            <Label fx:id="slot1" onMouseClicked="#nextMove" prefHeight="17.0" prefWidth="76.0" text="?" />
+            <Label fx:id="slot2" onMouseClicked="#nextMove" prefHeight="17.0" prefWidth="61.0" text="?" GridPane.columnIndex="1" />
+            <Label fx:id="slot3" onMouseClicked="#nextMove" text="?" GridPane.columnIndex="2" />
+            <Label fx:id="slot4" onMouseClicked="#nextMove" text="?" GridPane.rowIndex="1" />
+            <Label fx:id="slot5" onMouseClicked="#nextMove" text="?" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="slot6" onMouseClicked="#nextMove" text="?" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="slot7" onMouseClicked="#nextMove" text="?" GridPane.rowIndex="2" />
+            <Label fx:id="slot8" onMouseClicked="#nextMove" text="?" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="slot9" minHeight="95.0" minWidth="95.0" onMouseClicked="#nextMove" prefHeight="95.0" prefWidth="97.0" text="?" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+
+      </GridPane>
+      <Label layoutX="116.0" layoutY="33.0" minHeight="67.0" prefHeight="96.0" prefWidth="367.0" styleClass="title" text="TicTacToe" textFill="#4b1458" />
+      <Button fx:id="btnReset" layoutX="202.0" layoutY="512.0" mnemonicParsing="false" onAction="#resetGame" prefHeight="48.0" prefWidth="180.0" text="RESET" textFill="#6a4d4d" />
+      <Label fx:id="lblMessage" layoutX="71.0" layoutY="449.0" minHeight="42.0" prefHeight="48.0" prefWidth="457.0" styleClass="message" />
+   </children>
+</AnchorPane>
