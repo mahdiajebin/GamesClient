@@ -1,10 +1,25 @@
 
 
-.label{
--fx-font-size: 20;
+.larger-label{
+-fx-font-size: 15pt;
 -fx-alignment: center;
 -fx-min-height: 100;
 -fx-min-width: 100;
+-fx-border-color: black;
+}
+
+.smaller-label{
+-fx-font-size: 10pt;
+-fx-alignment: center;
+-fx-min-height: 70;
+-fx-min-width: 70;
+-fx-border-color: black;
+}
+.smaller2-label{
+-fx-font-size: 8pt;
+-fx-alignment: center;
+-fx-min-height: 50;
+-fx-min-width: 50;
 -fx-border-color: black;
 }
 

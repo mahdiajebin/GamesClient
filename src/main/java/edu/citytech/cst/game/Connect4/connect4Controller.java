@@ -16,9 +16,21 @@ public class connect4Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     //counter
-        for(int i = 0; i<42; i++){
+        int size = 100;
+        for(int i = 0; i<size; i=i+5){
             Label l = new Label("" + i);
-            if(i>20){
+
+
+            if (size > 78){
+                l.getStyleClass().add("smaller2-label");
+            }
+            else if ( size> 38 ){
+                l.getStyleClass().add("smaller-label");
+            }else {
+                l.getStyleClass().add("larger-label");
+            }
+
+            if( i % 10 ==0){
                 l.getStyleClass().add("highlight");
             }
             //which label was clicked
