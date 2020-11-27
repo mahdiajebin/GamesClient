@@ -106,6 +106,7 @@ public class TicTacToeController {
                 l.setText(move);
 
 
+
                 boolean hcomb1 = slot1.getText().equals("X") && slot2.getText().equals("X") && slot3.getText().equals("X");
                 boolean hcomb2 = slot1.getText().equals("O") && slot2.getText().equals("O") && slot3.getText().equals("O");
                 boolean hcomb3 = slot4.getText().equals("X") && slot5.getText().equals("X") && slot6.getText().equals("X");

@@ -5,7 +5,11 @@
 -fx-alignment: center;
 -fx-min-height: 100;
 -fx-min-width: 100;
--fx-border-color: black;
+-fx-border-width:5px;
+-fx-border-radius: 50;
+-fx-background-radius:50;
+-fx-border-color:white;
+
 }
 
 .smaller-label{
@@ -24,7 +28,20 @@
 }
 
 .highlight {
--fx-background-color: pink;
+-fx-background-color: yellow;
 }
 
+.flowPane{
+-fx-padding: 20 20 20 20;
+-fx-alignment: center;
+-fx-hgap:10;
+-fx-vgap:10;
+-fx-background-color:Black;
+}
+
+.connect4Label{
+-fx-font-size: 25;
+-fx-alignment: center;
+-fx-min-width: 50;
+}
 
