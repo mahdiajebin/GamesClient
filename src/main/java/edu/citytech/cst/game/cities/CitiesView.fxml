@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane prefHeight="587.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.cst.game.cities.CitiesController">
+   <children>
+      <TableView fx:id="tvCities" layoutX="45.0" layoutY="103.0" prefHeight="369.0" prefWidth="534.0">
+        <columns>
+          <TableColumn prefWidth="77.33331680297852" text="Id" >
+                  <cellValueFactory> <PropertyValueFactory property="id"/>  </cellValueFactory>
+          </TableColumn>
+
+
+          <TableColumn prefWidth="173.33332061767578" text="Cname" >
+            <cellValueFactory> <PropertyValueFactory property="name"/>  </cellValueFactory>
+        </TableColumn>
+
+            <TableColumn prefWidth="89.3333740234375" text="country code" >
+
+          <cellValueFactory> <PropertyValueFactory property="countryCode"/>  </cellValueFactory>
+      </TableColumn>
+
+            <TableColumn prefWidth="165.99996948242188" text="population" >
+       <cellValueFactory> <PropertyValueFactory property="population"/>  </cellValueFactory>
+   </TableColumn>
+
+        </columns>
+      </TableView>
+      <Button fx:id="btnSearch" layoutX="61.0" layoutY="517.0" mnemonicParsing="false" onAction="#search" text="Search" />
+      <TextField fx:id="txtPopulation" layoutX="45.0" layoutY="66.0" prefHeight="25.0" prefWidth="161.0" promptText="Enter population" />
+      <TextField fx:id="txtCountryCode" layoutX="234.0" layoutY="66.0" prefHeight="25.0" prefWidth="161.0" promptText="Enter Country Code" />
+      <Label layoutX="265.0" layoutY="29.0" text="City List" />
+      <Label fx:id="lblURL" layoutX="37.0" layoutY="547.0" prefHeight="25.0" prefWidth="566.0" />
+   </children>
+</AnchorPane>
