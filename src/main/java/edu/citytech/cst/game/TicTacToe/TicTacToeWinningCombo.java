@@ -1,4 +1,4 @@
-package edu.citytech.rahman.games.tictactoe;
+package edu.citytech.cst.game.TicTacToe;
 
 public class TicTacToeWinningCombo {
 

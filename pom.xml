@@ -49,14 +49,54 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
+                    <include>**/*.java</include>
                     <include>**/*.fxml</include>
                     <include>**/*.jpg</include>
                     <include>**/*.css</include>
+                    <include>**/*.csv</include>
                 </includes>
             </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.csv</include>
+                </includes>
+            </resource>
+
         </resources>
 
-        <finalName>thegames</finalName>
+        <plugins>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <addResources>false</addResources>
+                    <folders>
+                        <folder>src/main/resource</folder>
+                    </folders>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+
+                <configuration>
+                 <archive>
+                     <manifest>
+                         <addClasspath>true</addClasspath>
+                         <mainClass>edu.citytech.cst.game.Connect4.connect4Main</mainClass>
+                     </manifest>
+                 </archive>
+             </configuration>
+
+            </plugin>
+        </plugins>
+
+        <finalName>rahman-sumyia-connnect4</finalName>
     </build>
 
 

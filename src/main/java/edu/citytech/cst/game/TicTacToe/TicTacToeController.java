@@ -1,5 +1,7 @@
 package edu.citytech.cst.game.TicTacToe;
 
+import com.jbbwebsolutions.http.utility.URLUtility;
+import edu.citytech.cst.game.cities.City;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,11 +11,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import org.springframework.data.annotation.Id;
 
 import java.lang.reflect.Array;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class TicTacToeController {
 
+    static List<TicTacToeWinningCombo> list = new ArrayList<>();
     @FXML
     private Label slot1;
 
@@ -53,6 +65,7 @@ public class TicTacToeController {
     private boolean isWinner = false;
     private boolean isTie = false;
 
+
     @FXML
     void resetGame(ActionEvent event) {
 
@@ -75,101 +88,113 @@ public class TicTacToeController {
     }
 
     //instance variable
-    String move = "";
+   String moves = " " ;
 
 
     @FXML
     void nextMove(MouseEvent event) {
+        //   System.out.println("testing");
+
+        // http://localhost:9515/game/tictactoe?moves=OOO?OX?OX?
+        //
+        //
+
+
+
+
 
         if (!isTie) {
 
             if (!isWinner && !isTie) {
-                //   System.out.println(event);
-                //event.get source is going to return where it was clicked and return an object so we have to downcast it.
-                Object o = event.getSource();
-                //when we downcast it we get info out of the box(object); take advan of the attribute
-                Label l = (Label) o;
+        //   System.out.println(event);
+        //event.get source is going to return where it was clicked and return an object so we have to downcast it.
+        Object o = event.getSource();
+        //when we downcast it we get info out of the box(object); take advan of the attribute
+        Label l = (Label) o;
 
-                lblMessage.setText("");
-                lblMessage.getStyleClass().remove("winner");
-                lblMessage.getStyleClass().remove("error");
-
-
-                if (!l.getText().equals("?")) {
-                    lblMessage.setText(" you are attempting an illegal move");
-                    lblMessage.getStyleClass().add("error");
-                    return;
-                }
+        lblMessage.setText("");
+        lblMessage.getStyleClass().remove("winner");
+        lblMessage.getStyleClass().remove("error");
 
 
-                move = move.equals("X") ? "O" : "X";
-                l.setText(move);
+        if (!l.getText().equals("?")) {
+            lblMessage.setText(" you are attempting an illegal move");
+            lblMessage.getStyleClass().add("error");
+            return;
+        }
+
+
+        moves = moves.equals("X") ? "O" : "X";
+        l.setText(moves);
+
+
+        boolean hcomb1 = slot1.getText().equals("X") && slot2.getText().equals("X") && slot3.getText().equals("X");
+        boolean hcomb2 = slot1.getText().equals("O") && slot2.getText().equals("O") && slot3.getText().equals("O");
+        boolean hcomb3 = slot4.getText().equals("X") && slot5.getText().equals("X") && slot6.getText().equals("X");
+        boolean hcomb4 = slot4.getText().equals("O") && slot5.getText().equals("O") && slot6.getText().equals("O");
+        boolean hcomb5 = slot7.getText().equals("X") && slot8.getText().equals("X") && slot9.getText().equals("X");
+        boolean hcomb6 = slot7.getText().equals("O") && slot8.getText().equals("O") && slot9.getText().equals("O");
+
+        boolean vcomb1 = slot1.getText().equals("X") && slot4.getText().equals("X") && slot7.getText().equals("X");
+        boolean vcomb2 = slot1.getText().equals("X") && slot4.getText().equals("X") && slot7.getText().equals("X");
+        boolean vcomb3 = slot2.getText().equals("X") && slot5.getText().equals("X") && slot8.getText().equals("X");
+        boolean vcomb4 = slot2.getText().equals("O") && slot5.getText().equals("O") && slot8.getText().equals("O");
+        boolean vcomb5 = slot3.getText().equals("X") && slot6.getText().equals("X") && slot9.getText().equals("X");
+        boolean vcomb6 = slot3.getText().equals("O") && slot6.getText().equals("O") && slot9.getText().equals("O");
+
+        boolean dcomb1 = slot1.getText().equals("X") && slot5.getText().equals("X") && slot9.getText().equals("X");
+        boolean dcomb2 = slot1.getText().equals("O") && slot5.getText().equals("O") && slot9.getText().equals("O");
+        boolean dcomb3 = slot3.getText().equals("X") && slot5.getText().equals("X") && slot7.getText().equals("X");
+        boolean dcomb4 = slot3.getText().equals("O") && slot5.getText().equals("O") && slot7.getText().equals("O");
+
+//
+////Tie
+//
+//
+       isWinner = (hcomb1 || hcomb2 || hcomb3 || hcomb4 || hcomb5 || hcomb6 || vcomb1 || vcomb2 || vcomb3 || vcomb4 || vcomb5 || vcomb6 || dcomb1 || dcomb2 || dcomb3 || dcomb4);
 
 
 
-                boolean hcomb1 = slot1.getText().equals("X") && slot2.getText().equals("X") && slot3.getText().equals("X");
-                boolean hcomb2 = slot1.getText().equals("O") && slot2.getText().equals("O") && slot3.getText().equals("O");
-                boolean hcomb3 = slot4.getText().equals("X") && slot5.getText().equals("X") && slot6.getText().equals("X");
-                boolean hcomb4 = slot4.getText().equals("O") && slot5.getText().equals("O") && slot6.getText().equals("O");
-                boolean hcomb5 = slot7.getText().equals("X") && slot8.getText().equals("X") && slot9.getText().equals("X");
-                boolean hcomb6 = slot7.getText().equals("O") && slot8.getText().equals("O") && slot9.getText().equals("O");
-
-                boolean vcomb1 = slot1.getText().equals("X") && slot4.getText().equals("X") && slot7.getText().equals("X");
-                boolean vcomb2 = slot1.getText().equals("X") && slot4.getText().equals("X") && slot7.getText().equals("X");
-                boolean vcomb3 = slot2.getText().equals("X") && slot5.getText().equals("X") && slot8.getText().equals("X");
-                boolean vcomb4 = slot2.getText().equals("O") && slot5.getText().equals("O") && slot8.getText().equals("O");
-                boolean vcomb5 = slot3.getText().equals("X") && slot6.getText().equals("X") && slot9.getText().equals("X");
-                boolean vcomb6 = slot3.getText().equals("O") && slot6.getText().equals("O") && slot9.getText().equals("O");
-
-                boolean dcomb1 = slot1.getText().equals("X") && slot5.getText().equals("X") && slot9.getText().equals("X");
-                boolean dcomb2 = slot1.getText().equals("O") && slot5.getText().equals("O") && slot9.getText().equals("O");
-                boolean dcomb3 = slot3.getText().equals("X") && slot5.getText().equals("X") && slot7.getText().equals("X");
-                boolean dcomb4 = slot3.getText().equals("O") && slot5.getText().equals("O") && slot7.getText().equals("O");
 
 
-//Tie
+        isTie = ((!slot1.getText().equals("?")
+                && !slot2.getText().equals("?")
+                && !slot3.getText().equals("?")
+                && !slot4.getText().equals("?")
+
+                && !slot5.getText().equals("?")
+                && !slot6.getText().equals("?")
+                && !slot7.getText().equals("?")
+                && !slot8.getText().equals("?")
+                && !slot9.getText().equals("?")
+        )
+                && !isWinner);
 
 
-                isWinner = (hcomb1 || hcomb2 || hcomb3 || hcomb4 || hcomb5 || hcomb6 || vcomb1 || vcomb2 || vcomb3 || vcomb4 || vcomb5 || vcomb6 || dcomb1 || dcomb2 || dcomb3 || dcomb4);
+        if (isTie) {
+            lblMessage.setText("Its a Tie ");
+            return;
+        }
 
 
-                isTie = ((!slot1.getText().equals("?")
-                        && !slot2.getText().equals("?")
-                        && !slot3.getText().equals("?")
-                        && !slot4.getText().equals("?")
-
-                        && !slot5.getText().equals("?")
-                        && !slot6.getText().equals("?")
-                        && !slot7.getText().equals("?")
-                        && !slot8.getText().equals("?")
-                        && !slot9.getText().equals("?")
-                )
-                        && !isWinner);
+        if (isWinner) {
+            lblMessage.setText(("Winner is ") + moves);
+            lblMessage.getStyleClass().add("winner");
 
 
-                if (isTie) {
-                    lblMessage.setText("Its a Tie ");
-                    return;
-                }
-
-
-                if (isWinner) {
-                    lblMessage.setText(("Winner is ") + move);
-                    lblMessage.getStyleClass().add("winner");
-
-
-                }
+        }
 
 
             }else {
-                lblMessage.setText("Sorry, ["+ move + "] already won");
+                lblMessage.setText("Sorry, ["+ moves + "] already won");
             }
 
-        } // is tie
+           }// is tie
+
+         }
 
     }
 
-   }
 
 
 

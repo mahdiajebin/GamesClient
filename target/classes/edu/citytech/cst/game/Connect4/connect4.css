@@ -18,12 +18,12 @@
  -fx-margin: 100px;
 -fx-border-insets: 2px;
 -fx-background-insets: 2px;
--fx-background-color: white;
+-fx-background-color:#4F8C90;
 -fx-border-color:black;
 -fx-min-height:60px;
 -fx-min-width:60px;
 -fx-alignment:center;
--fx-text-fill:white;
+-fx-text-fill:#4F8C90;
 -fx-font-size:36px;
 }
 
@@ -40,10 +40,40 @@
 }
 
 .connect4Label{
--fx-font-size: 25;
+-fx-font-size: 40;
 -fx-alignment: center;
--fx-min-width: 50;
+-fx-min-width: 60;
+-fx-text-fill:RED;
+-fx-font-weight:bold;
+-fx-letter-spacing: 0.25em;
+-fx-font-family: sans-serif;
+-fx-position:absolute;
 }
+
+.apStyle{
+
+-fx-background-color:#4F8C90;
+
+}
+
+
+
+
+.labelN4{
+-fx-font-size: 50;
+-fx-text-fill:yellow;
+-fx-font-weight:bold;
+
+
+}
+.resetButton{
+-fx-min-width: 20;
+-fx-background-color: white;
+-fx-font-size: 20;
+-fx-text-color:black;
+}
+
+
 
 
 .X{
@@ -71,28 +101,31 @@
 -fx-alignment-insets: .55px;
 -fx-font-size:12px;
 }
-.colorWhite{
--fx-border-radius: 5000px;
--fx-background-radius:5000px;
--fx-margin:5px;
--fx-background-color: white;
--fx-border-color:black;
--fx-min-height:60px;
--fx-min-width:60px;
--fx-alignment-insets: .55px;
--fx-font-size:12px;
- -fx-margin-left: 80px;
+
+
+.resetMessage{
+-fx-font-size: 20;
+-fx-text-fill:black;
+
 }
-.lightGreen{
--fx-border-radius: 5000px;
--fx-background-radius:0px;
--fx-margin:5px;
--fx-background-color: lightgreen;
--fx-border-color:black;
--fx-min-height:60px;
--fx-min-width:60px;
--fx-alignment-insets: .55px;
--fx-font-size:12px;
+
+.winnerMessage{
+-fx-font-size: 20;
+-fx-text-fill:black;
 }
+
+
+.redScore{
+-fx-font-size: 14;
+-fx-text-fill:white;
+
+}
+
+
+.yellowScore{
+-fx-font-size: 14;
+-fx-text-fill:white;
+}
+
 
 #hover{-fx-background-color: #6695e2}
