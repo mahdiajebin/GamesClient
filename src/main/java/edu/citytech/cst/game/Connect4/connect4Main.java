@@ -16,7 +16,7 @@ public class connect4Main extends Application {
     public void start(Stage stage) throws Exception {
         Parent root =  FXMLLoader.load(getClass().getResource("connect4View.fxml"));
 
-        stage.setTitle("Connect4, Author: Rahman, Sumyia");
+        stage.setTitle("Connect4, Author: Mahdia, Jebin");
         stage.setScene(new Scene(root));
         stage.show();
     }
